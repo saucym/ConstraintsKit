@@ -1,5 +1,5 @@
 ---
-title: 一行代码的约束解决方案(成熟版)
+title: 极致简洁的约束组件
 categories: iOS
 tages: [iOS,Xcode,NSLayoutConstraint,Layout,ConstraintsKit]
 ---
