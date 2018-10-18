@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
 	s.summary = 'ConstraintsKit'
 	s.homepage = 'https://github.com/saucym/ConstraintsKit'
 	s.authors = { 'saucym' => '413132340@qq.com' }
-	s.source = { :git => 'https://github.com/saucym/ConstraintsKit.git', :branch => 'master' }
+	s.source = { :git => 'https://github.com/saucym/ConstraintsKit.git', :tag => '1.0' }
 	s.requires_arc = true
 	s.ios.deployment_target = '9.0'
 
