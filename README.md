@@ -16,8 +16,8 @@ The preferred installation method is with [CocoaPods](https://cocoapods.org). Ad
 pod 'ConstraintsKit'
 ```
 
-###Quick Start
-####Objc
+##Quick Start
+###Objc
 ```Swift
 view.wy_left(button).wy_right(button).wy_top(button.bottomAnchor).offset(5).wy_height(30);
 
@@ -39,7 +39,7 @@ view
 //You can modify the height you just set
 view.wy.heightConstant.constant = 50;
 ```
-####Swift
+###Swift
 ```Swift
 view.wy_left(button).wy_right(button).wy_top(button.bottomAnchor).offset(5).wy_height(30)
 //Or like this
