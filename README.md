@@ -19,6 +19,8 @@ pod 'ConstraintsKit'
 ## Quick Start
 ### Objc
 ```Swift
+#import <ConstraintsKit/ConstraintsKit.h>
+
 view.wy_left(button).wy_right(button).wy_top(button.bottomAnchor).offset(5).wy_height(30);
 
 //Or like this
@@ -41,6 +43,8 @@ view.wy.heightConstant.constant = 50;
 ```
 ### Swift
 ```Swift
+import ConstraintsKit
+
 view.wy_left(button).wy_right(button).wy_top(button.bottomAnchor).offset(5).wy_height(30)
 //Or like this
 view.wy_makeConstraints { (make) in
