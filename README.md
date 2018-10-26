@@ -42,7 +42,7 @@ view
 view.wy.heightConstant.constant = 50;
 ```
 ### Swift
-```Swift
+```Objcetive-C
 import ConstraintsKit
 
 view.wy_left(button).wy_right(button).wy_top(button.bottomAnchor).offset(5).wy_height(30)
