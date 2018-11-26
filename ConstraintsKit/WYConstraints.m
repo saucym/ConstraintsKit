@@ -46,7 +46,6 @@ typedef NS_OPTIONS(NSUInteger, WYConstraintsProperty) {
     if (self) {
         _options = WYConstraintsProperty_none;
         self.view = view;
-        view.translatesAutoresizingMaskIntoConstraints = NO;
         _allConstraint = [[NSHashTable alloc] initWithOptions:NSPointerFunctionsWeakMemory capacity:1];
     }
     
@@ -94,8 +93,10 @@ typedef NS_OPTIONS(NSUInteger, WYConstraintsProperty) {
 
 //约束设置函数通用化，只需要看懂这一个函数就可以了
 #define wy_layout_item(value, func, safeArea, propertyName) \
-    NSLayoutConstraint *layout = nil;\
     if ([value isKindOfClass:UIView.class] || [value isKindOfClass:NSNumber.class] || [value isKindOfClass:NSLayoutAnchor.class]) {\
+        if (self.view.translatesAutoresizingMaskIntoConstraints) {\
+            self.view.translatesAutoresizingMaskIntoConstraints = NO;\
+        }\
         UILayoutGuide *(^wykit_getGuide)(UIView *view) = ^(UIView *view) {\
             if (@available(iOS 11.0, *)) {\
                 if (safeArea) block_return view.safeAreaLayoutGuide;\
@@ -115,6 +116,7 @@ typedef NS_OPTIONS(NSUInteger, WYConstraintsProperty) {
             anchor = value;\
         }\
         \
+        NSLayoutConstraint *layout = nil;\
         if ([xAnchor isKindOfClass:NSLayoutDimension.class]) {\
             if ([anchor isKindOfClass:NSLayoutDimension.class]) {\
                 layout = [(NSLayoutDimension *)xAnchor func##Anchor:(NSLayoutDimension *)anchor constant:constant];\
@@ -125,11 +127,13 @@ typedef NS_OPTIONS(NSUInteger, WYConstraintsProperty) {
             layout = [xAnchor func##Anchor:anchor constant:constant];\
         }\
         layout.active = YES;\
-    }\
-    self.lastKeyPath = WYPropertyToText(value##Constraint);\
-    [self setValue:layout forKey:self.lastKeyPath];\
-    [self.allConstraint addObject:layout];\
-    self.lastConstraint = layout;\
+        self.lastKeyPath = WYPropertyToText(value##Constraint);\
+        [self setValue:layout forKey:self.lastKeyPath];\
+        [self.allConstraint addObject:layout];\
+        self.lastConstraint = layout;\
+    } else {\
+        NSAssert(false, @"WYConstraints value error: %@", (id)value);\
+    }
 
 //接口实现函数通用化
 #define WYConstraintsMethodAchieveWithItem(x) \
