@@ -18,6 +18,6 @@ Pod::Spec.new do |s|
 
     # only objc
     s.subspec 'objc' do |sp|
-      s.source_files = 'ConstraintsKit/**/*.{h,m}'
+      sp.source_files = 'ConstraintsKit/**/*.{h,m}'
     end
 end
