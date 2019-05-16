@@ -12,7 +12,12 @@ Pod::Spec.new do |s|
 	s.requires_arc = true
 	s.ios.deployment_target = '9.0'
 
-        s.swift_version = '4.2'
+    s.swift_version = '4.2'
 	s.source_files = 'ConstraintsKit/**/*.{h,m,swift}'
 	#s.resources = 'Resource/**/*.{xib,json,png,jpg,gif,js}','ConstraintsKit/**/*.{xib,json,png,jpg,gif,js}'
+
+    # only objc
+    s.subspec 'objc' do |sp|
+      s.source_files = 'ConstraintsKit/**/*.{h,m}'
+    end
 end
