@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
 	s.name = 'ConstraintsKit'
-	s.version = '1.0.1'
+	s.version = '1.0.3'
 	s.description = 'Extremely simplified constraint component, one line of code solves constraint layout'
 	s.license = { :type => 'MIT', :file => 'LICENSE' }
 	s.summary = 'ConstraintsKit'
