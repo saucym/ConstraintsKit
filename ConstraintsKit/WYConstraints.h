@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol WYConstraintsValueProtocol<NSObject> //目前参数支持三个类型 UIView、NSLayoutAnchor、NSNumber
 @end
 
@@ -43,14 +45,14 @@ NS_CLASS_AVAILABLE_IOS(9_0)
 - (WYConstraints * (^)(UILayoutPriority))priority NS_REFINED_FOR_SWIFT;
 
 //只保存最后一次设置那个
-@property (nonatomic, readonly, weak) NSLayoutConstraint *topConstraint;
-@property (nonatomic, readonly, weak) NSLayoutConstraint *leftConstraint;
-@property (nonatomic, readonly, weak) NSLayoutConstraint *bottomConstraint;
-@property (nonatomic, readonly, weak) NSLayoutConstraint *rightConstraint;
-@property (nonatomic, readonly, weak) NSLayoutConstraint *widthConstraint;
-@property (nonatomic, readonly, weak) NSLayoutConstraint *heightConstraint;
-@property (nonatomic, readonly, weak) NSLayoutConstraint *centerXConstraint;
-@property (nonatomic, readonly, weak) NSLayoutConstraint *centerYConstraint;
+@property (nonatomic, readonly, weak, nullable) NSLayoutConstraint *topConstraint;
+@property (nonatomic, readonly, weak, nullable) NSLayoutConstraint *leftConstraint;
+@property (nonatomic, readonly, weak, nullable) NSLayoutConstraint *bottomConstraint;
+@property (nonatomic, readonly, weak, nullable) NSLayoutConstraint *rightConstraint;
+@property (nonatomic, readonly, weak, nullable) NSLayoutConstraint *widthConstraint;
+@property (nonatomic, readonly, weak, nullable) NSLayoutConstraint *heightConstraint;
+@property (nonatomic, readonly, weak, nullable) NSLayoutConstraint *centerXConstraint;
+@property (nonatomic, readonly, weak, nullable) NSLayoutConstraint *centerYConstraint;
 
 @property (nonatomic, readonly) WYConstraints *top;
 @property (nonatomic, readonly) WYConstraints *left;
@@ -217,3 +219,4 @@ static inline id _WYKitBoxValue(const char *type, ...) {
 #define wy_centerY_greater(...)         wy_centerY_greater(WYKitBoxValue((__VA_ARGS__)))
 #define wy_centerY_greaterSafeArea(...) wy_centerY_greaterSafeArea(WYKitBoxValue((__VA_ARGS__)))
  
+NS_ASSUME_NONNULL_END
