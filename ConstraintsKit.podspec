@@ -2,13 +2,13 @@
 
 Pod::Spec.new do |s|
 	s.name = 'ConstraintsKit'
-	s.version = '1.0.3'
+	s.version = '1.0.4'
 	s.description = 'Extremely simplified constraint component, one line of code solves constraint layout'
 	s.license = { :type => 'MIT', :file => 'LICENSE' }
 	s.summary = 'ConstraintsKit'
 	s.homepage = 'https://github.com/saucym/ConstraintsKit'
 	s.authors = { 'saucym' => '413132340@qq.com' }
-	s.source = { :git => 'https://github.com/saucym/ConstraintsKit.git', :tag => '1.0' }
+	s.source = { :git => 'https://github.com/saucym/ConstraintsKit.git', :tag => '1.0.4' }
 	s.requires_arc = true
 	s.ios.deployment_target = '9.0'
 
