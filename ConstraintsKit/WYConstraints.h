@@ -7,7 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+
+#if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
+#elif TARGET_OS_MAC
+
+#import <AppKit/AppKit.h>
+
+# define CGSize NSSize
+# define UIView NSView
+# define UIEdgeInsets NSEdgeInsets
+# define UILayoutPriority NSLayoutPriority
+# define UILayoutGuide NSLayoutGuide
+
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -36,7 +49,7 @@ WYConstraintsViewMethodWithItem(centerY)
 
 @end
 
-NS_CLASS_AVAILABLE_IOS(9_0)
+NSLAYOUTCONSTRAINT_EXTERN API_AVAILABLE(macos(10.10), ios(9.0), tvos(9.0))
 @interface WYConstraints : NSObject<WYConstraintsMethodProtocol>
 
 //直接设置刚刚些的那个约束 这里提供快捷方法
@@ -81,10 +94,12 @@ NS_CLASS_AVAILABLE_IOS(9_0)
 
 @interface UIView (WYConstraints)<WYConstraintsValueProtocol, WYConstraintsMethodProtocol>
 
+#if TARGET_OS_IPHONE
 @property (nonatomic,readonly) NSLayoutYAxisAnchor *topAnchorSafeArea;   /**< 会自动判断是iOS11以上就使用safeArea属性，否则就使用普通属性 */
 @property (nonatomic,readonly) NSLayoutXAxisAnchor *leftAnchorSafeArea;
 @property (nonatomic,readonly) NSLayoutYAxisAnchor *bottomAnchorSafeArea;
 @property (nonatomic,readonly) NSLayoutXAxisAnchor *rightAnchorSafeArea;
+#endif
 
 @property (nonatomic, readonly) WYConstraints *wy; /**< 约束入口，懒加载的 如果没有设置过就会自动生成 */
 - (WYConstraints * (^)(UIEdgeInsets))wy_edge NS_REFINED_FOR_SWIFT;  /**< 直接根据边缘设置约束 */

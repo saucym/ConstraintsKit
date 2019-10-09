@@ -8,6 +8,16 @@
 
 import Foundation
 
+#if os(OSX)
+import AppKit
+public typealias CGSize = NSSize
+public typealias UIView = NSView
+public typealias UIEdgeInsets = NSEdgeInsets
+public typealias UILayoutPriority = NSLayoutConstraint.Priority
+#else
+import UIKit
+#endif
+
 public protocol WYConstraintsValueSwiftProtocol {
     var constraintsValue: WYConstraintsValueProtocol { get }
 }

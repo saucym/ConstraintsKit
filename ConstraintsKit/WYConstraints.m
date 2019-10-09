@@ -76,7 +76,7 @@ typedef NS_OPTIONS(NSUInteger, WYConstraintsProperty) {
 - (WYConstraints * (^)(UILayoutPriority))priority {
     return ^id(UILayoutPriority priority){
         NSLayoutConstraint *last = self.lastConstraint;
-        if (priority == UILayoutPriorityRequired || last.priority == UILayoutPriorityRequired) {
+        if (priority == 1000 || last.priority == 1000) {
             //设置最高优先级需要生成新的约束，不然会异常，详情见官方priority注释
             NSLayoutConstraint *layout = [NSLayoutConstraint constraintWithItem:last.firstItem attribute:last.firstAttribute relatedBy:last.relation toItem:last.secondItem attribute:last.secondAttribute multiplier:last.multiplier constant:last.constant];
             layout.priority = priority;
@@ -91,25 +91,27 @@ typedef NS_OPTIONS(NSUInteger, WYConstraintsProperty) {
     };
 }
 
+UILayoutGuide *wykit_getGuide(UIView *view, BOOL safeArea) {
+#if TARGET_OS_IPHONE
+    if (@available(iOS 11.0, *)) {
+        if (safeArea) return view.safeAreaLayoutGuide;
+    }
+#endif
+    return (UILayoutGuide *)view;
+}
+
 //约束设置函数通用化，只需要看懂这一个函数就可以了
 #define wy_layout_item(value, func, safeArea, propertyName) \
     if ([value isKindOfClass:UIView.class] || [value isKindOfClass:NSNumber.class] || [value isKindOfClass:NSLayoutAnchor.class]) {\
         if (self.view.translatesAutoresizingMaskIntoConstraints) {\
             self.view.translatesAutoresizingMaskIntoConstraints = NO;\
         }\
-        UILayoutGuide *(^wykit_getGuide)(UIView *view) = ^(UIView *view) {\
-            if (@available(iOS 11.0, *)) {\
-                if (safeArea) block_return view.safeAreaLayoutGuide;\
-            }\
-            block_return (UILayoutGuide *)view;\
-        };\
-        \
-        UILayoutGuide *guide = wykit_getGuide(self.view.superview);\
+        UILayoutGuide *guide = wykit_getGuide(self.view.superview, safeArea);\
         NSLayoutAnchor *xAnchor = [self.view value##Anchor];\
         NSLayoutAnchor *anchor = ([xAnchor isKindOfClass:NSLayoutDimension.class]) ? nil : [guide value##Anchor];\
         CGFloat constant = 0;\
         if ([value isKindOfClass:UIView.class]) {\
-            anchor = [wykit_getGuide(value) value##Anchor];\
+            anchor = [wykit_getGuide(value, safeArea) value##Anchor];\
         } else if ([value isKindOfClass:NSNumber.class]) {\
             constant = [value floatValue];\
         } else if ([value isKindOfClass:NSLayoutAnchor.class]) {\
@@ -305,6 +307,8 @@ WYConstraintsMethodAchieveWithItem(centerY)
     return [self.wy invalidAll];
 }
 
+#if TARGET_OS_IPHONE
+
 - (NSLayoutYAxisAnchor *)topAnchorSafeArea {
     if (@available(iOS 11.0, *)) {
         return self.safeAreaLayoutGuide.topAnchor;
@@ -336,6 +340,8 @@ WYConstraintsMethodAchieveWithItem(centerY)
         return self.rightAnchor;
     }
 }
+
+#endif
 
 //接口实现函数通用化
 #define WYConstraintsViewMethodAchieveWithItem(x)\

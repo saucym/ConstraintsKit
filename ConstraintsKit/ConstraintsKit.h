@@ -6,7 +6,7 @@
 //  Copyright © 2018 413132340@qq.com. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/NSObjCRuntime.h>
 
 //! Project version number for ConstraintsKit.
 FOUNDATION_EXPORT double ConstraintsKitVersionNumber;
