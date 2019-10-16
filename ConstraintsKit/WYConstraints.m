@@ -93,7 +93,7 @@ typedef NS_OPTIONS(NSUInteger, WYConstraintsProperty) {
 
 //约束设置函数通用化，只需要看懂这一个函数就可以了
 #define wy_layout_item(value, func, safeArea, propertyName) \
-    if ([value isKindOfClass:UIView.class] || [value isKindOfClass:NSNumber.class] || [value isKindOfClass:NSLayoutAnchor.class]) {\
+    if ([value isKindOfClass:UIView.class] || [value isKindOfClass:NSNumber.class] || [value isKindOfClass:NSLayoutAnchor.class] || [value isKindOfClass:UILayoutGuide.class]) {\
         if (self.view.translatesAutoresizingMaskIntoConstraints) {\
             self.view.translatesAutoresizingMaskIntoConstraints = NO;\
         }\
@@ -114,6 +114,8 @@ typedef NS_OPTIONS(NSUInteger, WYConstraintsProperty) {
             constant = [value floatValue];\
         } else if ([value isKindOfClass:NSLayoutAnchor.class]) {\
             anchor = value;\
+        } else if ([value isKindOfClass:UILayoutGuide.class]) {\
+            anchor = [value value##Anchor];\
         }\
         \
         NSLayoutConstraint *layout = nil;\

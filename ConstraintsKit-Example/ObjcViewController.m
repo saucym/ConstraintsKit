@@ -63,6 +63,33 @@
     view2.userInteractionEnabled = NO;
     [self.view addSubview:view2];
     view2.wy_left(view1).wy_right(view1).wy_height(30).wy_top(view1.bottomAnchor).offset(5);
+
+    // 底部提示按钮
+    UILabel *tips = [UILabel new];
+    tips.text = @"没有找到文件?";
+    tips.textColor = UIColor.grayColor;
+    tips.font = [UIFont systemFontOfSize:14];
+    UIButton *button = [UIButton new];
+    button.titleLabel.font = [UIFont systemFontOfSize:16];
+    [button setTitle:@"更多帮助" forState:UIControlStateNormal];
+    [button setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
+    [button setTitleColor:UIColor.darkGrayColor forState:UIControlStateHighlighted];
+
+    UIView *bgView = [UIView new];
+    bgView.backgroundColor = UIColor.lightGrayColor;
+    [self.view addSubview:bgView];
+    [bgView addSubview:tips];
+    [bgView addSubview:button];
+    bgView.wy_left(0).wy_right(0).wy_bottom(0).wy_top(self.view.bottomAnchorSafeArea).offset(-44);
+
+    UILayoutGuide *guide = [UILayoutGuide new];
+    [bgView addLayoutGuide:guide];
+    tips.wy_left(guide).wy_right(button.leftAnchor).offset(-5).wy_centerY(guide);
+    button.wy_right(guide).wy_centerY(guide);
+    // TODO: - 扩展UILayoutGuide
+    [guide.centerXAnchor constraintEqualToAnchor:bgView.centerXAnchor].active = YES;
+    [guide.topAnchor constraintEqualToAnchor:bgView.topAnchor].active = YES;
+    [guide.bottomAnchor constraintEqualToAnchor:bgView.bottomAnchorSafeArea].active = YES;
 }
 
 @end
