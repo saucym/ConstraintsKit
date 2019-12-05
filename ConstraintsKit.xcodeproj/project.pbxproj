@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		250C53352399312900A61894 /* ConstraintsKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250C53342399312900A61894 /* ConstraintsKitTests.swift */; };
+		250C53372399312900A61894 /* ConstraintsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 931CBBB121786B83000CAFA1 /* ConstraintsKit.framework */; };
 		931CBBC221786B83000CAFA1 /* ConstraintsKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 931CBBB421786B83000CAFA1 /* ConstraintsKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		931CBBCE21786BF4000CAFA1 /* WYConstraints.h in Headers */ = {isa = PBXBuildFile; fileRef = 931CBBCB21786BF3000CAFA1 /* WYConstraints.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		931CBBCF21786BF4000CAFA1 /* WYConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 931CBBCC21786BF3000CAFA1 /* WYConstraints.m */; };
@@ -19,7 +21,20 @@
 		931CBBEC21786E3C000CAFA1 /* ObjcViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 931CBBEB21786E3C000CAFA1 /* ObjcViewController.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		250C53382399312900A61894 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 931CBBA821786B83000CAFA1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 931CBBB021786B83000CAFA1;
+			remoteInfo = ConstraintsKit;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		250C53322399312900A61894 /* ConstraintsKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConstraintsKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		250C53342399312900A61894 /* ConstraintsKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsKitTests.swift; sourceTree = "<group>"; };
+		250C53362399312900A61894 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		931CBBB121786B83000CAFA1 /* ConstraintsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ConstraintsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		931CBBB421786B83000CAFA1 /* ConstraintsKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstraintsKit.h; sourceTree = "<group>"; };
 		931CBBB521786B83000CAFA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -38,6 +53,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		250C532F2399312900A61894 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				250C53372399312900A61894 /* ConstraintsKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		931CBBAE21786B83000CAFA1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -56,11 +79,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		250C53332399312900A61894 /* ConstraintsKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				250C53342399312900A61894 /* ConstraintsKitTests.swift */,
+				250C53362399312900A61894 /* Info.plist */,
+			);
+			path = ConstraintsKitTests;
+			sourceTree = "<group>";
+		};
 		931CBBA721786B83000CAFA1 = {
 			isa = PBXGroup;
 			children = (
 				931CBBB321786B83000CAFA1 /* ConstraintsKit */,
 				931CBBD621786D83000CAFA1 /* ConstraintsKit-Example */,
+				250C53332399312900A61894 /* ConstraintsKitTests */,
 				931CBBB221786B83000CAFA1 /* Products */,
 				931CBBE721786DD8000CAFA1 /* Frameworks */,
 			);
@@ -71,6 +104,7 @@
 			children = (
 				931CBBB121786B83000CAFA1 /* ConstraintsKit.framework */,
 				931CBBD521786D83000CAFA1 /* ConstraintsKit-Example.app */,
+				250C53322399312900A61894 /* ConstraintsKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,6 +158,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		250C53312399312900A61894 /* ConstraintsKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 250C533C2399312900A61894 /* Build configuration list for PBXNativeTarget "ConstraintsKitTests" */;
+			buildPhases = (
+				250C532E2399312900A61894 /* Sources */,
+				250C532F2399312900A61894 /* Frameworks */,
+				250C53302399312900A61894 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				250C53392399312900A61894 /* PBXTargetDependency */,
+			);
+			name = ConstraintsKitTests;
+			productName = ConstraintsKitTests;
+			productReference = 250C53322399312900A61894 /* ConstraintsKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		931CBBB021786B83000CAFA1 /* ConstraintsKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 931CBBC521786B83000CAFA1 /* Build configuration list for PBXNativeTarget "ConstraintsKit" */;
@@ -165,10 +217,13 @@
 		931CBBA821786B83000CAFA1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1110;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "413132340@qq.com";
 				TargetAttributes = {
+					250C53312399312900A61894 = {
+						CreatedOnToolsVersion = 11.1;
+					};
 					931CBBB021786B83000CAFA1 = {
 						CreatedOnToolsVersion = 10.0;
 						LastSwiftMigration = 1000;
@@ -194,11 +249,19 @@
 			targets = (
 				931CBBB021786B83000CAFA1 /* ConstraintsKit */,
 				931CBBD421786D83000CAFA1 /* ConstraintsKit-Example */,
+				250C53312399312900A61894 /* ConstraintsKitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		250C53302399312900A61894 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		931CBBAF21786B83000CAFA1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -218,6 +281,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		250C532E2399312900A61894 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				250C53352399312900A61894 /* ConstraintsKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		931CBBAD21786B83000CAFA1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -239,6 +310,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		250C53392399312900A61894 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 931CBBB021786B83000CAFA1 /* ConstraintsKit */;
+			targetProxy = 250C53382399312900A61894 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		931CBBE021786D85000CAFA1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -251,6 +330,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		250C533A2399312900A61894 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ConstraintsKitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.saucym.ConstraintsKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		250C533B2399312900A61894 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ConstraintsKitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.saucym.ConstraintsKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		931CBBC321786B83000CAFA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -466,6 +581,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		250C533C2399312900A61894 /* Build configuration list for PBXNativeTarget "ConstraintsKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				250C533A2399312900A61894 /* Debug */,
+				250C533B2399312900A61894 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		931CBBAB21786B83000CAFA1 /* Build configuration list for PBXProject "ConstraintsKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
