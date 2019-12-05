@@ -17,7 +17,7 @@ class TTView: UIView {
     private var vDict = [UIView : (frame: () -> CGRect, line: Int)]()
 
     /// 添加一个新的子view，调整约束，然后跟传入的frame对比
-    func test(_ line: Int = #line, frame: @escaping @autoclosure () -> CGRect, make: (UIView, TTView) -> Void) {
+    @objc func test(_ line: Int = #line, frame: @escaping @autoclosure () -> CGRect, make: (UIView, TTView) -> Void) {
         let sub = UIView()
         sub.tag = line
         addSubview(sub)
@@ -85,6 +85,10 @@ class ConstraintsKitTests: XCTestCase {
 
         view.test(frame: self.frame) { (v, _) in
             v.wy.left.right.top.bottom.equalTo(0)
+        }
+
+        view.test(frame: self.frame) { (v, _) in
+            v.wy.left.top.bottom.equalTo(0).width.height.equalTo(view)
         }
 
         view.test(frame: self.frame) { (v, _) in

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		250C53352399312900A61894 /* ConstraintsKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250C53342399312900A61894 /* ConstraintsKitTests.swift */; };
 		250C53372399312900A61894 /* ConstraintsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 931CBBB121786B83000CAFA1 /* ConstraintsKit.framework */; };
+		250C534523994A2B00A61894 /* ObjcTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 250C534423994A2B00A61894 /* ObjcTests.m */; };
 		931CBBC221786B83000CAFA1 /* ConstraintsKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 931CBBB421786B83000CAFA1 /* ConstraintsKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		931CBBCE21786BF4000CAFA1 /* WYConstraints.h in Headers */ = {isa = PBXBuildFile; fileRef = 931CBBCB21786BF3000CAFA1 /* WYConstraints.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		931CBBCF21786BF4000CAFA1 /* WYConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 931CBBCC21786BF3000CAFA1 /* WYConstraints.m */; };
@@ -35,6 +36,8 @@
 		250C53322399312900A61894 /* ConstraintsKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConstraintsKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		250C53342399312900A61894 /* ConstraintsKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsKitTests.swift; sourceTree = "<group>"; };
 		250C53362399312900A61894 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		250C534323994A2B00A61894 /* ConstraintsKitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ConstraintsKitTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		250C534423994A2B00A61894 /* ObjcTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjcTests.m; sourceTree = "<group>"; };
 		931CBBB121786B83000CAFA1 /* ConstraintsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ConstraintsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		931CBBB421786B83000CAFA1 /* ConstraintsKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstraintsKit.h; sourceTree = "<group>"; };
 		931CBBB521786B83000CAFA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,7 +86,9 @@
 			isa = PBXGroup;
 			children = (
 				250C53342399312900A61894 /* ConstraintsKitTests.swift */,
+				250C534423994A2B00A61894 /* ObjcTests.m */,
 				250C53362399312900A61894 /* Info.plist */,
+				250C534323994A2B00A61894 /* ConstraintsKitTests-Bridging-Header.h */,
 			);
 			path = ConstraintsKitTests;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 				TargetAttributes = {
 					250C53312399312900A61894 = {
 						CreatedOnToolsVersion = 11.1;
+						LastSwiftMigration = 1110;
 					};
 					931CBBB021786B83000CAFA1 = {
 						CreatedOnToolsVersion = 10.0;
@@ -286,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				250C53352399312900A61894 /* ConstraintsKitTests.swift in Sources */,
+				250C534523994A2B00A61894 /* ObjcTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +340,7 @@
 		250C533A2399312900A61894 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ConstraintsKitTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
@@ -343,6 +351,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.saucym.ConstraintsKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ConstraintsKitTests/ConstraintsKitTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -351,6 +361,7 @@
 		250C533B2399312900A61894 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ConstraintsKitTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
@@ -361,6 +372,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.saucym.ConstraintsKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ConstraintsKitTests/ConstraintsKitTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
