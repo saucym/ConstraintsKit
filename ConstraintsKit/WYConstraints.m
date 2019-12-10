@@ -24,6 +24,50 @@ typedef NS_OPTIONS(NSUInteger, WYConstraintsProperty) {
     WYConstraintsProperty_centerY    = 1 << 7,
 };
 
+@protocol WYConstraintsViewProtocol<NSObject>
+- (void)configTranslatesAutoresizingMaskIntoConstraints;
+- (UILayoutGuide *)superGuideWithSafeArea:(BOOL)safeArea;
+@end
+
+@interface UILayoutGuide (WYConstraintsViewProtocol)<WYConstraintsViewProtocol>
+@end
+
+@implementation UILayoutGuide (WYConstraintsViewProtocol)
+- (void)configTranslatesAutoresizingMaskIntoConstraints {}
+
+- (UILayoutGuide *)superGuideWithSafeArea:(BOOL)safeArea {
+    if (@available(iOS 11.0, *)) {
+        if (safeArea) {
+            return self.owningView.safeAreaLayoutGuide;
+        }
+    }
+
+    return (UILayoutGuide *)self.owningView;
+}
+@end
+
+@interface UIView (WYConstraintsViewProtocol)<WYConstraintsViewProtocol>
+@end
+
+@implementation UIView (WYConstraintsViewProtocol)
+- (void)configTranslatesAutoresizingMaskIntoConstraints {
+    if (self.translatesAutoresizingMaskIntoConstraints) {
+        self.translatesAutoresizingMaskIntoConstraints = NO;
+    }
+}
+
+- (UILayoutGuide *)superGuideWithSafeArea:(BOOL)safeArea {
+    if (@available(iOS 11.0, *)) {
+        if (safeArea) {
+            return self.superview.safeAreaLayoutGuide;
+        }
+    }
+
+    return (UILayoutGuide *)self.superview;
+}
+
+@end
+
 @interface WYConstraints ()
 
 @property (nonatomic, weak) UIView *view;

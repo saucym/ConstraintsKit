@@ -27,7 +27,7 @@ class TTView: UIView {
         vDict[sub] = (frame: frame, line: line)
     }
 
-    func checkFrame() {
+    @objc func checkFrame() {
         subviews.forEach { (sub) in
             let value = vDict[sub]!
             XCTAssertEqual(sub.frame, value.frame(), "check: \(value.line)")

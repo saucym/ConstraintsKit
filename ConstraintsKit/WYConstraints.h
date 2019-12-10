@@ -76,6 +76,9 @@ NS_CLASS_AVAILABLE_IOS(9_0)
 @interface NSLayoutAnchor (WYConstraints)<WYConstraintsValueProtocol>
 @end
 
+@interface UILayoutGuide (WYConstraints)<WYConstraintsValueProtocol>
+@end
+
 @interface NSNumber (WYConstraints)<WYConstraintsValueProtocol>
 @end
 
