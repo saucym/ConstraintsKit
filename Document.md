@@ -211,7 +211,7 @@ aView.wy_left(100).wy_right(-10).wy_top_safeArea(10).wy_bottom(-100)
 aView.wy_makeConstraints { (make) in
     make.wy_left(100)
     make.wy_right(-10)
-    make.wy_top_safeArea(superView).offset(10)
+    make.wy_top_safeArea(10)
     make.wy_bottom(-100)
 }
 ```
