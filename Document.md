@@ -186,8 +186,8 @@ WYConstraintsMethodAchieveWithItem(centerY)
 ```objective-c
 view2.wy_left(view1).wy_right(view1).wy_height(30).wy_top(view1.bottomAnchor).offset(5);
 
-// 如果需要更新上面设置的height可以也可以简单搞定 wy_layout里面可以拿到每一种约束最后设置的那个
-view2.wy_layout.height.constant = 50;
+// 如果需要更新上面设置的height可以也可以简单搞定 wy里面可以拿到每一种约束最后设置的那个
+view2.wy.heightConstraint.constant = 50;
 ```
 
 当然感觉这种链式调用太长的还可以使用下面这种等价的使用方式，是不是感觉很熟悉
