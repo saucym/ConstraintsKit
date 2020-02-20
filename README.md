@@ -35,8 +35,8 @@ view
 [view wy_makeConstraints:^(WYConstraints *make) {
    make.wy_left(button);
    make.wy_right(button);
-   make.wy_height(30);
    make.wy_top(button.bottomAnchor).offset(5);
+   make.wy_height(30);
 }];        
 
 //You can modify the height you just set
@@ -51,8 +51,8 @@ view.wy_left(button).wy_right(button).wy_top(button.bottomAnchor).offset(5).wy_h
 view.wy_makeConstraints { (make) in
     make.wy_left(button)
     make.wy_right(button)
-    make.wy_height(30)
     make.wy_top(button.bottomAnchor).offset(5)
+    make.wy_height(30)
 }                 
 ```
 ## License
