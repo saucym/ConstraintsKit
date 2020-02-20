@@ -14,6 +14,7 @@ The preferred installation method is with [CocoaPods](https://cocoapods.org). Ad
 
 ```ruby
 pod 'ConstraintsKit'
+# pod 'ConstraintsKit/objc' #if you are not support swift
 ```
 
 ## Quick Start
